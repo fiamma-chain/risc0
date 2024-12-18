@@ -29,4 +29,6 @@ fn main() {
     receipt.verify(MULTIPLY_ID).expect(
         "Code you have proven should successfully verify; did you specify the correct image ID?",
     );
+
+    println!("verify receipt succeed!");
 }

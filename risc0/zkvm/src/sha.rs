@@ -53,6 +53,7 @@ pub use risc0_zkp::core::{
 
 // This Impl selects the appropriate implementation of SHA-256 depending on whether we are
 // in the zkVM guest. Users can simply `use risc0_zkvm::sha::Impl`.
+pub use risc0_zkp::core::hash::blake3::Blake3Impl;
 pub use risc0_zkp::core::hash::sha::Impl;
 
 /// Defines a collision resistant hash for the typed and structured data.

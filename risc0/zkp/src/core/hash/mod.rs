@@ -15,6 +15,7 @@
 //! Traits to configure which cryptographic primitives the ZKP uses
 
 pub mod blake2b;
+pub mod blake3;
 pub mod poseidon2;
 #[cfg(feature = "prove")]
 pub mod poseidon_254;
@@ -95,6 +96,7 @@ pub fn hash_suite_from_name(name: impl AsRef<str>) -> Option<HashSuite<BabyBear>
         "blake2b" => Some(blake2b::Blake2bCpuHashSuite::new_suite()),
         #[cfg(feature = "prove")]
         "poseidon_254" => Some(poseidon_254::Poseidon254HashSuite::new_suite()),
+        "blake3" => Some(blake3::Blake3CpuHashSuite::new_suite()),
         _ => None,
     }
 }

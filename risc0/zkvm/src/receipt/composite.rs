@@ -140,6 +140,7 @@ impl CompositeReceipt {
             };
             tracing::debug!("verifying assumption: {assumption:?}");
             receipt.verify_integrity_with_context(assumption_ctx.as_ref().unwrap_or(ctx))?;
+            tracing::info!("------------composition-------------");
             if receipt.claim_digest()? != assumption.claim {
                 tracing::debug!(
                     "verifying assumption failed due to claim mismatch: assumption: {assumption:?}, receipt claim digest: {}",

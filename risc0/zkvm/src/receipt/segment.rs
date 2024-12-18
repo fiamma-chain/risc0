@@ -113,7 +113,9 @@ impl SegmentReceipt {
 
         // Receipt is consistent with the claim encoded on the seal. Now check against the
         // claim on the struct.
+        tracing::info!("-----------before decode_receipt_claim_from_seal------------");
         let decoded_claim = decode_receipt_claim_from_seal(&self.seal)?;
+        tracing::info!("-----------after decode_receipt_claim_from_seal------------");
         if decoded_claim.digest::<sha::Impl>() != self.claim.digest::<sha::Impl>() {
             tracing::debug!(
                 "decoded segment receipt claim does not match claim field:\ndecoded: {:#?},\nexpected: {:#?}",

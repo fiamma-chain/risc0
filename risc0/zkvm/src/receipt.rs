@@ -179,6 +179,7 @@ impl Receipt {
         // constrained all field in the ReceiptClaim, we can directly construct the expected digest
         // and do not need to open the claim digest on the inner receipt.
         let expected_claim = ReceiptClaim::ok(image_id, MaybePruned::Pruned(self.journal.digest()));
+        tracing::info!("-----------receipt claim------------");
         if expected_claim.digest() != self.inner.claim()?.digest() {
             tracing::debug!(
                 "receipt claim does not match expected claim:\nreceipt: {:#?}\nexpected: {:#?}",
@@ -706,6 +707,7 @@ impl VerifierContext {
             ("blake2b".into(), Blake2bCpuHashSuite::new_suite()),
             ("poseidon2".into(), Poseidon2HashSuite::new_suite()),
             ("sha-256".into(), Sha256HashSuite::new_suite()),
+            // TODO: Mr Big blake3
         ])
     }
 

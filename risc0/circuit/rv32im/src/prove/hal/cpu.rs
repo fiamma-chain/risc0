@@ -28,7 +28,7 @@ use risc0_sys::ffi_wrap;
 use risc0_zkp::{
     adapter::PolyFp,
     core::{
-        hash::{poseidon2::Poseidon2HashSuite, sha::Sha256HashSuite},
+        hash::{blake3::Blake3HashSuite, poseidon2::Poseidon2HashSuite, sha::Sha256HashSuite},
         log2_ceil,
     },
     field::baby_bear::BabyBear,
